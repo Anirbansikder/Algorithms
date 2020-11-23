@@ -1,0 +1,972 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Algorithms</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="Algebra/Algebra.html"><strong aria-hidden="true">2.</strong> Algebra</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Algebra/SieveOfEratosthenes/SieveOfEratosthenes.html"><strong aria-hidden="true">2.1.</strong> Sieve of Eratosthenes</a></li><li class="chapter-item expanded "><a href="Algebra/Fibonacci/Fibonacci.html"><strong aria-hidden="true">2.2.</strong> Fibonacci Sequence</a></li><li class="chapter-item expanded "><a href="Algebra/LinearDiophantine/LinearDiophantine.html"><strong aria-hidden="true">2.3.</strong> Linear Diophantine Equations</a></li><li class="chapter-item expanded "><a href="Algebra/EulerTotient/EulerTotient.html"><strong aria-hidden="true">2.4.</strong> Euler's Totient Function</a></li><li class="chapter-item expanded "><a href="Algebra/ModularInverse/ModularInverse.html"><strong aria-hidden="true">2.5.</strong> Modular Multiplicative Inverse</a></li></ol></li><li class="chapter-item expanded "><a href="Searching_Algos/Linear_search/Explanation.html"><strong aria-hidden="true">3.</strong> Searching Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Searching_Algos/Linear_search/Explanation.html"><strong aria-hidden="true">3.1.</strong> Linear Search</a></li><li class="chapter-item expanded "><a href="Searching_Algos/Binary_search/Explanation.html"><strong aria-hidden="true">3.2.</strong> Binary Search</a></li><li class="chapter-item expanded "><a href="Searching_Algos/Binary_search/binaryVSlinear.html"><strong aria-hidden="true">3.3.</strong> Binary vs Linear Search</a></li><li class="chapter-item expanded "><a href="Searching_Algos/Ternary_search/Explanation.html"><strong aria-hidden="true">3.4.</strong> Ternary Search</a></li></ol></li><li class="chapter-item expanded "><a href="PersistentDS/index.html"><strong aria-hidden="true">4.</strong> Persistent Data Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="PersistentDS/persistentST.html"><strong aria-hidden="true">4.1.</strong> Persistent Segment Trees</a></li></ol></li><li class="chapter-item expanded "><a href="Graph/Graph.html"><strong aria-hidden="true">5.</strong> Graph</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Graph/Tree/Tree.html"><strong aria-hidden="true">5.1.</strong> Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Graph/Tree/Diameter/diameter.html"><strong aria-hidden="true">5.1.1.</strong> Diameter</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithms</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<h2><a class="header" href="#about-the-project" id="about-the-project">About the Project</a></h2>
+<p>This repository contains some of the most intriguing and awesome algorithms of daily life implemented in languages primarily in C/C++/Java/Python.</p>
+<h2><a class="header" href="#project-details" id="project-details">Project Details</a></h2>
+<p>The entire project is divided into 4 parts</p>
+<ul>
+<li>Competitive Coding Algorithms and Data Structures</li>
+<li>Security Algorithms</li>
+<li>Machine Learning Algorithms</li>
+<li>Statistical / Mathematical Algorithms</li>
+</ul>
+<h1><a class="header" href="#algebra" id="algebra">Algebra</a></h1>
+<h1><a class="header" href="#sieve-of-eratosthenes" id="sieve-of-eratosthenes">Sieve of Eratosthenes</a></h1>
+<h2><a class="header" href="#introduction-1" id="introduction-1">Introduction</a></h2>
+<p>Sieve of Eratosthenes is an algorithm that helps us find all the prime numbers in a range \([1, n]\). Initially, we take a boolean array of size \(n+1\) where the \(i\)'th index will be <code>true</code> if \(i\) is prime, and <code>false</code> otherwise. All the numbers except 0 and 1 are marked as prime at the beginning of the process.</p>
+<p>Then we loop through the numbers from 2 till \(n\) and if the number is currently marked as prime, then we add that number to our list of primes and mark all it's multiples as non-prime. At the end of the process, we will have all the prime numbers in the range in our list.</p>
+<p>Let us try to simulate the process for \(n=16\). The numbers will be placed between brackets in the diagrams if they are marked as non-prime. Initially, all numbers are marked prime except 1.</p>
+<pre><code>(1) 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+</code></pre>
+<p>Now, the loop variable, say \(i\), is at 2, which is a prime, so we mark all it's multiples as non-prime.</p>
+<pre><code>(1) 2 3 (4) 5 (6) 7 (8) 9 (10) 11 (12) 13 (14) 15 (16)
+</code></pre>
+<p>We do the same for <code>i=3</code>.</p>
+<pre><code>(1) 2 3 (4) 5 (6) 7 (8) (9) (10) 11 (12) 13 (14) (15) (16)
+</code></pre>
+<p>One important observation here is that all non-prime numbers are marked within \(\sqrt{n}\) iterations. So, we can go through the remaining numbers and add them if they are prime. So the primes in the range would be: <code>[2, 3, 5, 7, 11, 13]</code>.</p>
+<h2><a class="header" href="#implementation" id="implementation">Implementation</a></h2>
+<p><strong>C++</strong></p>
+<pre><code class="language-cpp">vector&lt;int&gt; get_primes(int n)
+{
+
+    vector&lt;int&gt; primes;
+    vector&lt;bool&gt; is_prime(n+1, true);
+    is_prime[0] = is_prime[1] = false;
+
+    for(int i=2; i&lt;=n; i++)
+    {
+        if (!is_prime[i])
+            continue;
+        primes.push_back(i);
+        for(int j=i*i; j&lt;=n; j+=i)
+            is_prime[j] = false;
+    }
+    return primes;
+}
+</code></pre>
+<p><strong>Python</strong></p>
+<pre><code class="language-py">def SieveOfEratosthenes(n):
+    isPrime = [True]*(n+1)
+    isPrime[0] = isPrime[1] = False
+    primes = []
+    for i in range(2, n+1):
+        if not isPrime[i]:continue
+        primes += [i]
+        for j in range(i*i, n+1, i):
+            isPrime[j] = False
+    return primes
+</code></pre>
+<p>Other than finding primes, the algorithm can also be used to factorise any number less than or equal to \(n\) in <strong>O(divisors)</strong> time if we simply store the smallest prime factor of each number in the array.</p>
+<h2><a class="header" href="#practice-problems" id="practice-problems">Practice Problems</a></h2>
+<ul>
+<li><a href="https://codeforces.com/contest/26/problem/A">Almost Prime</a></li>
+<li><a href="https://codeforces.com/contest/1366/problem/D">Two Divisors</a></li>
+</ul>
+<h1><a class="header" href="#fibonacci-sequence" id="fibonacci-sequence">Fibonacci Sequence</a></h1>
+<h2><a class="header" href="#introduction-2" id="introduction-2">Introduction</a></h2>
+<p>The Fibonacci sequence is defined using the following recurrence relation:
+<br />
+<br />
+\(F_n = F_{n-1} + F_{n-2}\)
+<br />
+<br />
+where, \(F_0 = 0, F_1 = 1\). This simple recurrence can be used to calculate \(n\)'th fibonacci number in \(O(n)\) time.</p>
+<h2><a class="header" href="#binets-formula" id="binets-formula">Binet's Formula</a></h2>
+<p>Binet's formula is an explicit formula used to find the nth term of the Fibonacci sequence.
+<br />
+<br />
+\(F_n = \frac{\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n}{\sqrt{5}}\)</p>
+<p>Note that the absolute value of the second term is less than 1, so as \(n\) increases, it's value tends to 0. Thus, we can say that the value of the first term alone is nearly equal to F<sub>n</sub>. The formula also requires very high accuracy and is therefore not practical for larger values of \(n\).</p>
+<h2><a class="header" href="#matrix-form" id="matrix-form">Matrix Form</a></h2>
+<p>Consider the following relation:
+<br />
+\(\begin{pmatrix}F_{n-1} &amp; F_{n} \cr\end{pmatrix} = \begin{pmatrix}F_{n-2} &amp; F_{n-1} \cr\end{pmatrix} \cdot \begin{pmatrix}0 &amp; 1 \cr 1 &amp; 1 \cr\end{pmatrix}\)
+<br />
+<br />
+Then,
+<br />
+<br />
+\(\begin{pmatrix}F_n &amp; F_{n+1} \cr\end{pmatrix} = \begin{pmatrix}F_0 &amp; F_1 \cr\end{pmatrix} \cdot P^n\)
+<br />
+<br />
+where, \(P \equiv \begin{pmatrix}0 &amp; 1 \cr 1 &amp; 1 \cr\end{pmatrix}\)
+<br />
+<br />
+\(P^{n}\) can be calculated in \(O(\log{n})\) time using matrix exponentiation. This particular method of calculating \(n\)'th Fibonacci term is useful when \(n\) is very large, and the result is needed modulo some integer \(m\).</p>
+<p><strong>Python</strong></p>
+<pre><code class="language-py">multiply = lambda A, B, mod: [[sum(i * j for i, j in zip(row, col)) % mod for col in zip(*B)] for row in A]
+
+def f(n, m):
+    p = [[0, 1], [1, 1]]
+    result = [[1, 0], [0, 1]]
+    cur = 1
+    i = 0
+    while cur &lt;= n:
+        if n &amp; (1&lt;&lt;i):
+            result = multiply(result, p, m)
+        i += 1
+        cur *= 2
+        p = multiply(p, p, m)
+    return multiply([[0,1]], result, m)[0][0]
+</code></pre>
+<h2><a class="header" href="#practice-problems-1" id="practice-problems-1">Practice Problems</a></h2>
+<ul>
+<li><a href="https://www.spoj.com/problems/FIBOSUM/">Fibonacci Sum</a></li>
+<li><a href="https://codeforces.com/contest/718/problem/C">Sasha and Array</a></li>
+</ul>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<ul>
+<li><a href="https://cp-algorithms.com/">CP-Algorithms</a></li>
+</ul>
+<h1><a class="header" href="#linear-diophantine-equations" id="linear-diophantine-equations">Linear Diophantine Equations</a></h1>
+<h2><a class="header" href="#introduction-3" id="introduction-3">Introduction</a></h2>
+<p>A linear diophantine equation is one of the form \(ax + by = c\), where \(a\), \(b\) and \(c\) are integers known to us. A solution to the equation will exist only when \(\gcd(a,b)\) divides \(c\), where gcd denotes the greatest common divisor.</p>
+<p>To find one of the solutions, we can apply the extended Euclidean algorithm to find the gcd of \(a\) and \(b\), and two numbers \(x_{g}\) and \(y_{g}\) such that \(ax_{g} + by_{g} = g\).</p>
+<p>The implementation is as follows:</p>
+<p><strong>C++</strong></p>
+<pre><code class="language-cpp">pair&lt;int, int&gt; solve(int a, int b, int c)
+{
+    int m1=1, m2=0, n1=0, n2=1;
+    while (a % b)
+    {
+        int quotient = a / b;
+        int remainder = a % b;
+        int aux1 = m1-(m2*quotient);
+        int aux2 = n1-(n2*quotient);
+        a = b;
+        b = remainder;
+        m1 = m2;
+        n1 = n2;
+        m2 = aux1;
+        n2 = aux2;
+    }
+    return make_pair(m2*c,n2*c);
+}
+</code></pre>
+<p><strong>Python</strong></p>
+<pre><code class="language-py">def solve(a,b,c):
+    m1, m2, n1, n2 = 1, 0, 0, 1
+    while a % b:
+        quotient = a // b
+        a, b = b, a % b
+        m1, n1, m2, n2 = m2, n2, m1-(m2*quotient), n1-(n2*quotient)
+    return m2*c,n2*c
+</code></pre>
+<p>From one solution, say \((x_0, y_0)\), we can obtain all other solutions by adding \(\frac{b}{g}\) to \(x_0\) and subtracting \(\frac{a}{g}\) from \(y_0\). This gives us a general solution of the form:
+<br />
+\(x = x_0 + k \cdot \frac{b}{g}\), 
+<br />
+\(y = y_0 - k \cdot \frac{a}{g}\)</p>
+<h2><a class="header" href="#practice-problems-2" id="practice-problems-2">Practice Problems</a></h2>
+<ul>
+<li><a href="https://www.spoj.com/problems/CEQU/">Crucial Equations</a></li>
+</ul>
+<h2><a class="header" href="#references-1" id="references-1">References</a></h2>
+<ul>
+<li><a href="https://cp-algorithms.com/">CP-Algorithms</a></li>
+</ul>
+<h1><a class="header" href="#eulers-totient-function" id="eulers-totient-function">Euler's Totient Function</a></h1>
+<h2><a class="header" href="#introduction-4" id="introduction-4">Introduction</a></h2>
+<p>Euler's Totient Function, denoted by \(\phi(n)\), counts the number of integers in the range \([1, n]\) that are co-prime to \(n\). Two numbers are said to be co-prime if their greatest common divisor is equal to 1. Some important properties of the function are:</p>
+<ol>
+<li>
+<p>For any prime \(n\), it is trivial to see that 
+<br />
+\(\phi(n) = n-1\)</p>
+</li>
+<li>
+<p>For two co-prime integers a and b, from the Chinese Remainder Theorem, it follows that 
+<br />
+\(\phi(a b) = \phi(a) \cdot \phi(b)\)</p>
+</li>
+<li>
+<p>For any prime p,
+<br />
+\(\phi(p^k) = p^k - p^{k-1}\)
+<br />
+This holds true because all numbers except the multiples of p will be co-prime to p<sup>k</sup>, and since there are exactly p<sup>k-1</sup> multiples of p, we subtract it from the result.</p>
+</li>
+</ol>
+<p>Using the above results, we can calculate the value of the function for any integer n in O(√n) time by using factorization.</p>
+<h2><a class="header" href="#implementation-1" id="implementation-1">Implementation</a></h2>
+<p><strong>C++</strong></p>
+<pre><code class="language-cpp">int phi(int n)
+{
+    int result = n;
+    for(int i=2; i*i&lt;=n; i++)
+    {
+        if (n % i == 0)
+        {
+            result -= result/i;
+            while(n % i == 0)
+                n /= i;
+        }
+    }
+    if (n != 1)
+        result -= result/n;
+    return result;
+}
+</code></pre>
+<p><strong>Python</strong></p>
+<pre><code class="language-py">def phi(n):
+    result = n
+    i = 2
+    while i*i &lt;= n:
+        if n % i == 0:
+            result -= result//i
+            while n % i == 0:
+                n //= i
+        i += 1
+    if n != 1:
+        result -= result//n
+    return result
+</code></pre>
+<p>If we require the totient of all the numbers upto n, then finding them using factorization will be inefficient. In that case, we can use an approach similar to the Sieve of Eratosthenes, by calculating all the prime numbers and updating the results of the multiples of each prime. The algorithm will have similar complexity as sieve.</p>
+<p><strong>C++</strong></p>
+<pre><code class="language-cpp">vector&lt;int&gt; get_phi(int n)
+{
+
+    vector&lt;int&gt; result(n+1);
+    for(int i=0; i&lt;=n; i++)
+        result[i] = i;
+    for (int i = 2; i &lt;= n; i++)
+    {
+        if (result[i] == i)
+        {
+            for (int j = i; j &lt;= n; j += i)
+                result[j] -= result[j] / i;
+        }
+    }
+    return result;
+}
+</code></pre>
+<p><strong>Python</strong></p>
+<pre><code class="language-py">def get_phi(n):
+    result = [*range(n+1)]
+    for i in range(2, n+1):
+        if result[i] == i:
+            for j in range(i, n+1, i):
+                result[j] -= result[j] // i
+    return result
+</code></pre>
+<h2><a class="header" href="#practice-problems-3" id="practice-problems-3">Practice Problems</a></h2>
+<ul>
+<li><a href="https://www.spoj.com/problems/LCMSUM/">LCM Sum</a></li>
+<li><a href="https://www.spoj.com/problems/NAJPWG/">Playing with GCD</a></li>
+</ul>
+<h2><a class="header" href="#references-2" id="references-2">References</a></h2>
+<ul>
+<li><a href="https://cp-algorithms.com/">CP-Algorithms</a></li>
+</ul>
+<h1><a class="header" href="#modular-multiplicative-inverse" id="modular-multiplicative-inverse">Modular Multiplicative Inverse</a></h1>
+<h2><a class="header" href="#introduction-5" id="introduction-5">Introduction</a></h2>
+<p>A modular multiplicative inverse of an integer \(a\) is some integer \(x\) such that, for some modulo \(m\),
+<br />
+\(a \cdot x \equiv 1 \mod m\)
+<br />
+Here, \(x\) can also be denoted using \(a^{-1}\). Note that the modular inverse does not necessarily exist. It only exists if \(\gcd(a, m) = 1\).</p>
+<h2><a class="header" href="#calculating-the-modular-inverse" id="calculating-the-modular-inverse">Calculating the modular inverse</a></h2>
+<p>From the Euler's theorem, if \(a\) and \(m\) are relatively prime,
+<br />
+<br />
+\(a^{\phi (m)} \equiv 1 \mod m\)
+<br />
+<br />
+Multiplying both sides by \(a^{-1}\), we get:
+<br />
+<br />
+\(a ^ {\phi (m) - 1} \equiv a ^{-1} \mod m\) ...(1)
+<br />
+<br />
+Now if the modulus is prime, from Fermat's little theorem, we get:
+<br />
+<br />
+\(a^{m - 1} \equiv 1 \mod m\)
+<br />
+<br />
+Multiplying both sides by a<sup>-1</sup>, we get:
+<br />
+<br />
+\(a ^ {m - 2} \equiv a ^ {-1} \mod m\) ...(2)
+<br />
+<br />
+Using results (1) and (2), and using binary exponentiation, the modular inverse can be calculated in \(O(\log{m})\) time for prime modulus, and in \(O(\sqrt{m} + \log{m})\) time otherwise, since calculating totient takes \(O(\sqrt{m})\) time.</p>
+<p>Now say we need to calculate the inverse modulo some prime \(m\) for all integers in the range \([1, n]\).</p>
+<p>We have:
+<br />
+<br />
+\(m \bmod i = m -  \left\lfloor \frac{m}{i} \right\rfloor \cdot i\)
+<br />
+<br />
+Taking modulo \(m\) both sides, we get:
+<br />
+<br />
+\(m \bmod i \equiv - \left\lfloor \frac{m}{i} \right\rfloor \cdot i \mod m\)
+<br />
+<br />
+Multiplying both sides by i<sup>-1</sup> . (m mod i)<sup>-1</sup> and simplifying, we have:
+<br />
+<br />
+\(i^{-1} \equiv -\left\lfloor \frac{m}{i} \right\rfloor \cdot (m \bmod i)^{-1} \mod m\) ...(3)
+<br />
+<br />
+We can use this equation to calculate \(i^{-1}\) for all \(i &lt; m\).</p>
+<pre><code class="language-cpp">inv[i] = 1;
+for(int i=2; i&lt;=n; i++)
+ inv[i] = m - (m/i) * inv[m%i] % m;
+</code></pre>
+<p>Thus, we can calculate the inverse of all numbers upto \(n\) in \(O(n)\) time.</p>
+<h2><a class="header" href="#practice-problems-4" id="practice-problems-4">Practice Problems</a></h2>
+<ul>
+<li><a href="https://codeforces.com/contest/57/problem/C">Array</a></li>
+<li><a href="https://codeforces.com/contest/1452/problem/D">Radio Towers</a></li>
+</ul>
+<h2><a class="header" href="#references-3" id="references-3">References</a></h2>
+<ul>
+<li><a href="https://cp-algorithms.com/">CP-Algorithms</a></li>
+</ul>
+<h1><a class="header" href="#linear-search" id="linear-search">Linear Search</a></h1>
+<p>Linear search is the simplest searching algorithm that searches for an element in a list(any linear data-structure) in sequential order. We start at one end and check every element until the desired element is not found.
+Works on both sorted and un-sorted array.</p>
+<h2><a class="header" href="#problem-statement" id="problem-statement">Problem Statement</a></h2>
+<p>Given an array <code>arr[]</code> of n elements, write a function to search a given element <code>x</code> in <code>arr[]</code>.(Array indexing 0-based, i.e,  <code>[0,1,...,n-1]</code> where n is the size of the array). If <code>x</code> is not present in the array return <code>-1</code>.</p>
+<h2><a class="header" href="#solution" id="solution">Solution</a></h2>
+<p>We linearly traverse the array <code>arr[]</code> from frist to last postion, i.e, index <code>0</code> to index <code>n-1</code> where <code>n</code> is the size of the given array, and if we find the required element <code>x</code> return the index of that element. If the required element makes multiple occurances, the index value of the first occurance will be returned.</p>
+<pre><code class="language-cpp">int main(){
+    int n;
+    cin&gt;&gt;n; // input the size of required array
+    int arr[n]; // make an array of size n
+    for(int i=0; i&lt;n; i++)cin&gt;&gt;arr[i]; // input the array
+    int x; 
+    cin&gt;&gt;x; // the value to be searched
+    int pos=-1; // initialize to -1 so that non-occurance of x can be checked
+    for(int i=0; i&lt;n; i++){
+        if(arr[i]==x){
+            cout&lt;&lt;x&lt;&lt;&quot;Occurs at index &quot;&lt;&lt;i;
+            pos=i;
+            return 0;
+        }
+    }
+    if(pos==-1)cout&lt;&lt;&quot;Not present in array&quot;;
+}
+</code></pre>
+<h2><a class="header" href="#time-complexity" id="time-complexity">Time Complexity</a></h2>
+<blockquote>
+<p><code>O(n)</code> in the worst case scenario as we have to traverse the whole array from start to end.</p>
+</blockquote>
+<h2><a class="header" href="#practice-problems-5" id="practice-problems-5">Practice Problems</a></h2>
+<p><a href="https://practice.geeksforgeeks.org/problems/number-of-occurrence2259/1/?category%5B%5D=Searching&amp;page=1&amp;query=category%5B%5DSearchingpage1">Find number of occurances</a></p>
+<p><a href="https://practice.geeksforgeeks.org/problems/doubling-the-value4859/1/?category%5B%5D=Searching&amp;page=1&amp;query=category%5B%5DSearchingpage1">Doubling the value</a></p>
+<p><a href="https://practice.geeksforgeeks.org/problems/search-in-a-matrix17201720/1/?category%5B%5D=Searching&amp;page=2&amp;query=category%5B%5DSearchingpage2">Search in a matrix</a></p>
+<h1><a class="header" href="#linear-search-1" id="linear-search-1">Linear Search</a></h1>
+<p>Linear search is the simplest searching algorithm that searches for an element in a list(any linear data-structure) in sequential order. We start at one end and check every element until the desired element is not found.
+Works on both sorted and un-sorted array.</p>
+<h2><a class="header" href="#problem-statement-1" id="problem-statement-1">Problem Statement</a></h2>
+<p>Given an array <code>arr[]</code> of n elements, write a function to search a given element <code>x</code> in <code>arr[]</code>.(Array indexing 0-based, i.e,  <code>[0,1,...,n-1]</code> where n is the size of the array). If <code>x</code> is not present in the array return <code>-1</code>.</p>
+<h2><a class="header" href="#solution-1" id="solution-1">Solution</a></h2>
+<p>We linearly traverse the array <code>arr[]</code> from frist to last postion, i.e, index <code>0</code> to index <code>n-1</code> where <code>n</code> is the size of the given array, and if we find the required element <code>x</code> return the index of that element. If the required element makes multiple occurances, the index value of the first occurance will be returned.</p>
+<pre><code class="language-cpp">int main(){
+    int n;
+    cin&gt;&gt;n; // input the size of required array
+    int arr[n]; // make an array of size n
+    for(int i=0; i&lt;n; i++)cin&gt;&gt;arr[i]; // input the array
+    int x; 
+    cin&gt;&gt;x; // the value to be searched
+    int pos=-1; // initialize to -1 so that non-occurance of x can be checked
+    for(int i=0; i&lt;n; i++){
+        if(arr[i]==x){
+            cout&lt;&lt;x&lt;&lt;&quot;Occurs at index &quot;&lt;&lt;i;
+            pos=i;
+            return 0;
+        }
+    }
+    if(pos==-1)cout&lt;&lt;&quot;Not present in array&quot;;
+}
+</code></pre>
+<h2><a class="header" href="#time-complexity-1" id="time-complexity-1">Time Complexity</a></h2>
+<blockquote>
+<p><code>O(n)</code> in the worst case scenario as we have to traverse the whole array from start to end.</p>
+</blockquote>
+<h2><a class="header" href="#practice-problems-6" id="practice-problems-6">Practice Problems</a></h2>
+<p><a href="https://practice.geeksforgeeks.org/problems/number-of-occurrence2259/1/?category%5B%5D=Searching&amp;page=1&amp;query=category%5B%5DSearchingpage1">Find number of occurances</a></p>
+<p><a href="https://practice.geeksforgeeks.org/problems/doubling-the-value4859/1/?category%5B%5D=Searching&amp;page=1&amp;query=category%5B%5DSearchingpage1">Doubling the value</a></p>
+<p><a href="https://practice.geeksforgeeks.org/problems/search-in-a-matrix17201720/1/?category%5B%5D=Searching&amp;page=2&amp;query=category%5B%5DSearchingpage2">Search in a matrix</a></p>
+<h1><a class="header" href="#binary-search" id="binary-search">Binary Search</a></h1>
+<p>Binary search is a fast search algorithm with run-time complexity of <code>Ο(log n)</code>. This search algorithm works on the principle of <code>divide and conquer</code>. For this algorithm to work properly, the data collection should be in the <code>sorted form</code>.</p>
+<p>Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the middle item is greater than the item, then the item is searched in the sub-array to the left of the middle item. Otherwise, the item is searched for in the sub-array to the right of the middle item. This process continues on the sub-array as well until the size of the subarray reduces to zero.</p>
+<h2><a class="header" href="#problem-statement-2" id="problem-statement-2">Problem Statement</a></h2>
+<p>Given an array <code>arr[]</code> of n elements in <code>sorted</code> order, write a function to search a given element <code>x</code> in <code>arr[]</code>.(Array indexing 0-based, i.e,  <code>[0,1,...,n-1]</code> where n is the size of the array). If <code>x</code> is not present in the array return <code>-1</code>.</p>
+<h2><a class="header" href="#solution-2" id="solution-2">Solution</a></h2>
+<p>Let the given array be</p>
+<p><img src="https://www.tutorialspoint.com/data_structures_algorithms/images/binary_search_0.jpg" alt="img" /></p>
+<p>and the number to be searched be 31.</p>
+<p>First determine the left and right ends of the array </p>
+<blockquote>
+<p>left = 0 and right = n-1 (here n = 10, the size of array).
+Thus middle = left + (right - left) / 2 .</p>
+</blockquote>
+<p><img src="https://www.tutorialspoint.com/data_structures_algorithms/images/binary_search_1.jpg" alt="img" /></p>
+<p>Now, compare the arr[mid] value with x (value to be found). 
+If <code>arr[mid] &gt; x</code>, then we can say x lies to the left of mid. Else if <code>arr[mid] &lt; x</code>, then x lies to the right of mid, else if <code>arr[mid] == x</code> we have found our ans.</p>
+<blockquote>
+<p>Here arr[mid] &lt; 31, thus we change our left = mid+1 and mid = left + (right - left) / 2 </p>
+</blockquote>
+<p><img src="https://www.tutorialspoint.com/data_structures_algorithms/images/binary_search_3.jpg" alt="img" /></p>
+<blockquote>
+<p>Here arr[mid] &gt; 31, thus we change our right = mid-1 and mid = left + (right - left) / 2</p>
+</blockquote>
+<p><img src="https://www.tutorialspoint.com/data_structures_algorithms/images/binary_search_5.jpg" alt="img" /></p>
+<blockquote>
+<p>Finally arr[mid] = 31, thus the required pos is mid, where mid = 5</p>
+</blockquote>
+<p><img src="https://www.tutorialspoint.com/data_structures_algorithms/images/binary_search_6.jpg" alt="img" /></p>
+<pre><code class="language-cpp">int binarySearch(int arr[],int n, int x){
+    int left=0, right=n-1;
+    while(left&lt;right){
+        int mid=left+(right-left)/2;
+        if(arr[mid]&gt;x){
+            right=mid-1;
+        }
+        else if(arr[mid]&lt;x){
+            left=mid+1;
+        }
+        else if(arr[mid]==x){
+            return mid;
+        }
+    }
+    return -1; // if x is not present in the array
+}
+</code></pre>
+<h2><a class="header" href="#time-complexity-2" id="time-complexity-2">Time Complexity</a></h2>
+<p>As mentioned earlier, Binary Search is the fastest algorithm with the time complexity of O(log<sub>2</sub>n).</p>
+<p>As we keep dividing the array to half it's current size at each iteration, thus the size of the array decreases logarithmically. </p>
+<p><strong>At 1st iteration</strong></p>
+<p>length = n</p>
+<p><strong>At 2nd iteration</strong></p>
+<p>length = \( \frac{x}{2} \)</p>
+<p><strong>At 3rd iteration</strong></p>
+<p>length = \(\frac{x}{2}*\frac{1}{2} = \frac{x}{4}\)</p>
+<p>.
+.
+.</p>
+<p><strong>At k-th iteration</strong></p>
+<p>length = \( \frac{n}{2^{k-1}} \)</p>
+<p>So, maximum number of interations will be \( \log_2{n} \)</p>
+<h2><a class="header" href="#practice-probelms" id="practice-probelms">Practice Probelms</a></h2>
+<p><a href="https://practice.geeksforgeeks.org/problems/binary-search/1">Binary Search</a></p>
+<p><a href="https://codeforces.com/problemset/problem/706/B">Intresting Drink</a></p>
+<p><a href="https://codeforces.com/problemset/problem/279/B">Books</a></p>
+<h2><a class="header" href="#know-these" id="know-these">Know These</a></h2>
+<h3><a class="header" href="#upper_-bound" id="upper_-bound">upper_ bound:</a></h3>
+<p>In-built C++ function, which takes an array or a vector and a value ( say  <code>x</code> ) as input and returns a iterator that points to a value <strong>just greater</strong> than the provided value. ( works on a sorted array / vector ).
+If there are multiple such values, the one that makes first occurance is returned.</p>
+<pre><code class="language-cpp">vector&lt;int&gt; v;
+int x;
+int pos = upper_bound( v.begin() , v.end(), x) - v.begin();
+</code></pre>
+<h3><a class="header" href="#lower_bound" id="lower_bound">lower_bound:</a></h3>
+<p>In-built C++ function, which takes an array or a vector and a value ( say  <code>x</code> ) as input and returns an iterator that points to the value <strong>not less</strong> than the provided value. ( works on a sorted array / vector ). If there are multiple such values, the one that makes first occurance is returned.</p>
+<pre><code class="language-cpp">vector&lt;int&gt; v;
+int x;
+int pos = lower_bound( v.begin() , v.end() , x) - v.begin();
+</code></pre>
+<p>If no such value is available, both the functions return an iterator pointing to the end of the array / vector .</p>
+<h1><a class="header" href="#binary-search-vs-linear-search" id="binary-search-vs-linear-search">Binary Search VS Linear Search</a></h1>
+<p>As we can judge from the time complexities, Binary search is the go to method for a sorted array.</p>
+<p>The GIF belows visualises Binary-Search and Linear-Search side by side on the same array. Hope, this gives you an idea of the algorithms efficiency.</p>
+<p><img src="https://blog.penjee.com/wp-content/uploads/2015/04/binary-and-linear-search-animations.gif" alt="Alt Text" /></p>
+<h1><a class="header" href="#ternary-search" id="ternary-search">Ternary Search</a></h1>
+<p>It is a divide-and-conquer algorithm, similar to binary search, only that we divide the array in three parts using mid1 and mid2, and the array should be sorted. </p>
+<h2><a class="header" href="#problem-statement-3" id="problem-statement-3">Problem Statement</a></h2>
+<p>Given an array <code>arr[]</code> of n elements in <code>sorted</code> order, write a function to search a given element <code>x</code> in <code>arr[]</code>.(Array indexing 0-based, i.e,  <code>[0,1,...,n-1]</code> where n is the size of the array). If <code>x</code> is not present in the array return <code>-1</code>.</p>
+<h2><a class="header" href="#solution-3" id="solution-3">Solution</a></h2>
+<p>Let the given array be </p>
+<blockquote>
+<p>1    |    2    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10</p>
+</blockquote>
+<p>and the value to be searched be   <code>x = 6</code></p>
+<p>First determine the left and right ends of the array</p>
+<blockquote>
+<p>left = 0, right = 9 [n(size of array) - 1]</p>
+<p>Thus, mid1 = left + ( right - left ) / 3, and</p>
+<p>mid2 = mid1 + ( right - left ) / 3</p>
+<p>left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right</p> 
+\/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/
+<p>1 &nbsp;&nbsp; | &nbsp;&nbsp; 2 &nbsp;&nbsp; | &nbsp;&nbsp; 3 &nbsp;&nbsp; | &nbsp;&nbsp; 4 &nbsp;&nbsp; | &nbsp;&nbsp; 5 &nbsp;&nbsp; | &nbsp;&nbsp; 6 &nbsp;&nbsp; | &nbsp;&nbsp; 7 &nbsp;&nbsp; | &nbsp;&nbsp; 8 &nbsp;&nbsp; | &nbsp;&nbsp; 9 &nbsp;&nbsp; | &nbsp;&nbsp; 10</p>
+</blockquote>
+<p>As, <code>x &gt; arr[mid1]</code> and <code>x &lt; arr[mid2]</code></p>
+<blockquote>
+<p>left = mid1 (4), <p>right = mid2 (7),</p><p> mid1 = 5,</p> <p> mid2 = 6 </p></p>
+</blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;&nbsp;&nbsp;mid1&nbsp;&nbsp;&nbsp;mid2&nbsp;&nbsp;&nbsp;right&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p>1 &nbsp;&nbsp; | &nbsp;&nbsp; 2 &nbsp;&nbsp; | &nbsp;&nbsp; 3 &nbsp;&nbsp; | &nbsp;&nbsp; 4 &nbsp;&nbsp; | &nbsp;&nbsp; 5 &nbsp;&nbsp; | &nbsp;&nbsp; 6 &nbsp;&nbsp; | &nbsp;&nbsp; 7 &nbsp;&nbsp; | &nbsp;&nbsp; 8 &nbsp;&nbsp; | &nbsp;&nbsp; 9 &nbsp;&nbsp; | &nbsp;&nbsp; 10</p>
+</blockquote>
+<p>We see, <code>arr[mid2] = x</code>. Thus, required <code>pos = mid2</code>.</p>
+<pre><code class="language-cpp(Recursive)">int ternarySearch(int arr[], int n,int l,int r int x){
+    if(right &gt; left){
+        int mid1 = left + (right - left) / 3;
+        int mid2 = mid1 + (right - left) / 3;
+        // check if x is found
+        if(arr[mid1] == x){
+            retrun mid1;
+        }
+        if(arr[mid2] == x){
+            retrun mid2;
+        }
+        if(x &lt; arr[mid1]){
+            // x lies between l and mid1
+            return ternarySearch(arr, n, l, mid1-1, x);
+        }
+        else if(x &gt; arr[mid2]){
+            // x lies between mid2 nad r
+            retrun ternarySearch(arr, n, mid2+1, r, x);
+        }
+        else{
+            // x lies between mid1 and mid2
+            return ternarySearch(arr, n, mid1+1, mid2-1, x);
+        }
+    }
+    // x not found
+    return -1;
+}
+</code></pre>
+<h2><a class="header" href="#time-complexity-3" id="time-complexity-3">Time Complexity</a></h2>
+<p>Ternary Search is faster than Binary Search, as it also works in logarithamic complexity but the base is 3, O(log<sub>3</sub>n). But it is not as widely used as binary search.</p>
+<p>As we keep dividing the array to one-third it's current size at each iteration, thus the size of the array decreases logarithmically. </p>
+<p><strong>At 1st iteration</strong></p>
+<p>length = n</p>
+<p><strong>At 2nd iteration</strong></p>
+<p>length = \( \frac{x}{3} \)</p>
+<p><strong>At 3rd iteration</strong></p>
+<p>length = \(\frac{x}{3}*\frac{1}{3} = \frac{x}{9}\)</p>
+<p>.
+.
+.</p>
+<p><strong>At k-th iteration</strong></p>
+<p>length = \( \frac{n}{3^{k-1}} \)</p>
+<p>So, maximum number of interations will be \( \log_3{n} \)</p>
+<h2><a class="header" href="#practice-problem" id="practice-problem">Practice Problem</a></h2>
+<p><a href="https://codeforces.com/problemset/problem/578/C">Weakness and Poorness</a></p>
+<p><a href="https://www.codechef.com/problems/AMCS03">Race Time!</a></p>
+<p><a href="https://codeforces.com/problemset/problem/439/D">Devu and his Brother</a></p>
+<p><a href="https://www.codechef.com/problems/ICM2003">This is JEE</a></p>
+<h1><a class="header" href="#persistent-data-structure" id="persistent-data-structure">Persistent Data Structure</a></h1>
+<p>In normal DS when we change or update a particular value the entire DS gets changed. Consider an array <code>arr = [1, 2, 3, 4, 4]</code>, now if we want to update <code>arr[2]</code> to 6 it will become <code>[1, 2, 6, 4, 4]</code>. This final array now lost its pervious state. But in case of <strong>Persistent DS</strong> it will preserve it's previous states as well. </p>
+<p>Persistent Datastructure preserves all versions of itself</p>
+<ul>
+<li>Every update to the data structure creates a new version</li>
+<li><code>Update(version, &lt;value&gt;): </code>  returns a new version</li>
+</ul>
+<h2><a class="header" href="#types-of-persistence" id="types-of-persistence">Types of Persistence</a></h2>
+<h3><a class="header" href="#1-parital-persistence" id="1-parital-persistence">1. Parital Persistence</a></h3>
+<ul>
+<li>Query any versions of the DS</li>
+<li>Update only the latest version of DS</li>
+</ul>
+<p>Let's say we have a series of versions as follows (in the form of Linked List):</p>
+<p>v1 -&gt; v2 -&gt; v3 </p>
+<p>Now if we want to make some changes we can only do that to the v3, so after this update we will have</p>
+<p>v1 -&gt; v2 -&gt; v3 -&gt; <strong>v4</strong></p>
+<p>Hence, all the versions will always be linearly ordered (due to the additional constraint)</p>
+<h3><a class="header" href="#2-full-persistence" id="2-full-persistence">2. Full Persistence</a></h3>
+<ul>
+<li>Query any versions of the DS (typical of any persistence)</li>
+<li>Update any version of the DS</li>
+</ul>
+<p>Let's say initially you only one version v1, and then you make an update you get</p>
+<pre><code>v1 -&gt; v2
+</code></pre>
+<p>Now you apply another update but again to v1 (this was not possible in partial persistence) here it will branch off as show below</p>
+<pre><code>        v1
+       /  \ 
+     v2    v3
+
+</code></pre>
+<p>Again if we update v3 we will get:-</p>
+<pre><code>        v1
+       /  \ 
+     v2    v3
+            \
+            v4 
+</code></pre>
+<p>Hence, in full persistence the versions will form a tree. </p>
+<blockquote>
+<p>A DS that supports full persistence will always support partial persistence.</p>
+</blockquote>
+<h1><a class="header" href="#persistent-segment-tree" id="persistent-segment-tree">Persistent segment tree</a></h1>
+<h2><a class="header" href="#example-problem-" id="example-problem-">Example problem :</a></h2>
+<p>We have an array a1, a2, ..., an and at first q update queries and then u ask queries which you have to answer online.
+Each update query gives you numbers p and v and asks you to increase ap by v.
+Each ask query, gives you three numbers <code>i</code> and <code>x</code> and <code>y</code> and asks you to print the value of <code>ax + ax + 1 + ... + ay</code> after performing <code>i - th</code> query.</p>
+<h2><a class="header" href="#solution-4" id="solution-4">Solution</a></h2>
+<p>Each update query, changes the value of <code>O(log(n))</code> nodes in the segment tree, so you should keep rest of nodes (not containing p) and create <code>log(n)</code> new nodes. Totally, you need to have <code>q.log(n)</code> nodes. So, you can not use normal segment's indexing, you should keep the index of children in the arrays L and R.</p>
+<p>If you update a node, you should assign a new index to its interval (for i - th query).</p>
+<p>You should keep an array <code>root[q]</code> which gives you the index of the interval of the <code>root ( [0, n) )</code> after performing each query and a number ir = 0 which is its index in the initial segment tree (ans of course, an array s[MAXNODES] which is the sum of elements in that node). Also you should have a NEXT_FREE_INDEX = 1 which is always the next free index for a node.</p>
+<p>First of all, you need to build the initial segment tree :</p>
+<p>(In these codes, all arrays and queries are 0-based)</p>
+<pre><code class="language-cpp">void build(int id = ir,int l = 0,int r = n){
+	if(r - l &lt; 2){
+		s[id] = a[l];
+		return ;
+	}
+	int mid = (l+r)/2;
+	L[id] = NEXT_FREE_INDEX ++;
+	R[id] = NEXT_FREE_INDEX ++;
+	build(L[id], l, mid);
+	build(R[id], mid, r);
+	s[id] = s[L[id]] + s[R[id]];
+}
+</code></pre>
+<p>(So, we should call build() )</p>
+<p>Update function : (its return value, is the index of the interval in the new version of segment tree and id is the index of old one)</p>
+<pre><code class="language-cpp">int upd(int p, int v,int id,int l = 0,int r = n){
+	int ID =  NEXT_FREE_INDEX ++; // index of the node in new version of segment tree
+	if(r - l &lt; 2){
+		s[ID] = (a[p] += v);
+		return ID;
+	}
+	int mid = (l+r)/2;
+	L[ID] = L[id], R[ID] = R[id]; // in case of not updating the interval of left child or right child
+	if(p &lt; mid)
+		L[ID] = upd(p, v, L[ID], l, mid);
+	else
+		R[ID] = upd(p, v, R[ID], mid, r);
+	return ID;
+}
+</code></pre>
+<p>(For the first query (with index 0) we should run root[0] = upd(p,  v,  ir) and for the rest of them, for j - th query se should run root[j] = upd(p,  v,  root[j - 1]) )</p>
+<p>Function for ask queries :</p>
+<pre><code class="language-cpp">int sum(int x,int y,int id,int l = 0,int r = n){
+	if(x &gt;= r or l &gt;= y)	return 0;
+	if(x &lt;= l &amp;&amp; r &lt;= y)	return s[id];
+	int mid = (l+r)/2;
+	return sum(x, y, L[id], l, mid) +
+	       sum(x, y, R[id], mid, r);
+}
+</code></pre>
+<p>(So, we should print the value of sum(x, y, root[i]) )</p>
+<p>Source: <a href="https://codeforces.com/blog/entry/15729">CF Blog</a></p>
+<h2><a class="header" href="#tree" id="tree"><strong>Tree</strong></a></h2>
+<p>We can define <em>Tree</em> as a connected undirected graph with <em>no cycles</em> .</p>
+<p>There are some more ways we can define Tree . Here are some equivalent definitions : </p>
+<ul>
+<li>connected undirected graph with N nodes  and N-1 edges.</li>
+<li>connected undirected graph with only unique paths i.e there is one and only path from one node to another.</li>
+<li>connected undirected graph where if you remove 1 edge it no longer remains connected.</li>
+</ul>
+<h1><a class="header" href="#diameter-of-a-tree" id="diameter-of-a-tree">Diameter of a tree</a></h1>
+<p>The Diameter of tree is the <em>maximum</em> length between two nodes. For example : <br>
+Consider the following tree of 7 nodes</p>
+<div align = "center">
+<img height = "100"  src = "https://user-images.githubusercontent.com/58760297/99883654-e1a9b980-2c4e-11eb-979c-02dce3dd276d.png"/> 
+</div><br>
+<p>Here, <em>Diameter</em> = 4 . </p>
+<h2><a class="header" href="#algorithm" id="algorithm">Algorithm</a></h2>
+<p>First, root the tree arbitarily.</p>
+<div align = "center">
+<img height = "175"  src = "https://user-images.githubusercontent.com/58760297/99886616-fe042100-2c63-11eb-9334-81907b4c1ba6.png"/>
+</div><br>
+<p>For each <em>node</em>, we calculate <em>toLeaf(node)</em> which denotes 
+<em>maximum</em> length of a path from the <em>node</em> to any <em>leaf</em>.<br></p>
+<pre><code>if node is leaf :
+    toLeaf[node] = 0
+else
+    toLeaf[node] = 1 + max(toLeaf[child]) | for all child of node
+</code></pre>
+<br>
+<p>We can use DFS to calculate <em>toLeaf(node)</em>.<br></p>
+<pre><code class="language-cpp">vector&lt;int&gt; toLeaf(n+1, 0); // n is no. of nodes
+void dfs(int node){
+    visited[node] = true;
+    for(int child : tree[node]){
+        if(visited[child])
+            continue;
+        dfs(child);
+        toLeaf[node] = max(toLeaf[node], 1 + toLeaf[child]);
+    }
+}
+</code></pre>
+<br>
+<div align = "center">
+<img height = "175"  src = "https://user-images.githubusercontent.com/58760297/99886436-8da8d000-2c62-11eb-8c39-27906df824e5.png"/>
+</div><br>
+<p>Now calculate <em>path_length(node)</em> which denotes <em>maximum</em> length of a path whose highest point is node.</p>
+<pre><code>if node is leaf :
+    path_length[node] = 0
+else if node has only 1 child :
+    path_length[node] = toLeaf[child] + 1
+else
+    Take two distinct child a,b such that (toLeaf[a] + toLeaf[b]) is maximum, then
+    path_length[node] = (toLeaf[a] + 1) + (toLeaf[b] + 1)
+    
+</code></pre>
+<p>Here is the implementation .</p>
+<pre><code class="language-cpp">vector&lt;int&gt; toLeaf(n+1, 0), path_length(n+1, 0);
+void dfs(int node){
+    visited[node] = true;
+    vector&lt;int&gt; length = {-1}; // allows us to handle the cases when node has less than 2 children
+    for(int child : tree[node]){
+        if(visited[child])
+            continue;
+        dfs(child);
+        toLeaf[node] = max(toLeaf[node], 1 + toLeaf[child]); 
+        length.push_back(toLeaf[child]);
+    }
+    int s = length.size(), m = min((int)length.size(),2);
+    for(int i = 0; i &lt; m; i++){
+        for(int j = i+1; j &lt; s; j++){
+            if(length[i] &lt; length[j])
+                swap(length[i], length[j]);
+        }
+        path_length[node] += length[i] + 1;
+    }   
+}    
+</code></pre>
+<br>
+<div align = "center">
+<img height = "175"  src = "https://user-images.githubusercontent.com/58760297/99886528-3a834d00-2c63-11eb-8671-4d7eb16560c4.png"/>
+</div><br>
+<p>Finally, <em>Diameter = maximum</em> of all lengths in path_length. Therefore here, <em>Diameter</em> = 4.</p>
+<h2><a class="header" href="#problems" id="problems">Problems</a></h2>
+<ul>
+<li><a href="https://cses.fi/problemset/task/1131/">Tree Diameter</a></li>
+</ul>
+<h2><a class="header" href="#reference" id="reference">Reference</a></h2>
+<ul>
+<li>Competitive Programmer's Handbook by Antii Laaksonen.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
